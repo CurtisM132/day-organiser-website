@@ -1,24 +1,11 @@
-# New Project
+# Simple Website that Implements a Vanilla CSS Theme Switcher and Custom Inputs
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+### Software
+* Snowpack
+** Snowpack is a modern, lightweight build tool for faster web development. Traditional JavaScript build tools like webpack and Parcel need to rebuild & rebundle entire chunks of your application every time you save a single file. Snowpack serves your application unbundled during development. Each file needs to be built only once and then is cached forever. When a file changes, Snowpack rebuilds that single file. There’s no time wasted re-bundling every change, just instant updates in the browser.
+** Snowpack gets you the best of both worlds: fast, unbundled development with optimized performance in your bundled production builds.
+** https://www.snowpack.dev/
 
-## Available Scripts
-
-### npm start
-
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.json` config file.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+### Style Guide
+* Airbnb React/JSX Style Guide
+* https://airbnb.io/javascript/react
