@@ -1,4 +1,11 @@
-/* Add CSS styles here! */
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Browser agnostic way to define font-size as 10px */
+  font-size: 62.5%;
   font-family: "Roboto";
 }

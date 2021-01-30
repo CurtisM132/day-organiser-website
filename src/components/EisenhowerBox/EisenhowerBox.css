@@ -1,6 +1,125 @@
 .box-container {
-    width: 300px;
-    height: 300px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-gap: 0.2em;
+    grid-template-areas:
+        ". header-1 header-2"
+        "header-3 section-1 section-2"
+        "header-4 section-3 section-4";
 
-    background-color: beige;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+
+    --box-width: 30rem;
+    --box-height: 30rem;
+    --div-height: 4rem;
+}
+
+.box-div {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 4rem;
+
+    background-color: #ebebeb;
+}
+
+.urgent-div {
+    width: var(--box-width);
+    height: var(--div-height);
+
+    margin-bottom: -0.2rem;
+
+    grid-area: header-1;
+}
+
+.not-urgent-div {
+    width: var(--box-width);
+    height: var(--div-height);
+
+    margin-bottom: -0.2rem;
+
+    grid-area: header-2;
+}
+
+.important-div {
+    height: var(--box-width);
+    width: var(--div-height);
+    margin-right: -0.2rem;
+
+    grid-area: header-3;
+
+    writing-mode: vertical-lr;
+
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); /* Safari */
+    -moz-transform: rotate(180deg); /* Firefox */
+    -ms-transform: rotate(180deg); /* IE */
+    -o-transform: rotate(180deg); /* Opera */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Internet Explorer */
+
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%; /* Safari */
+    -moz-transform-origin: 50% 50%; /* Firefox */
+    -ms-transform-origin: 50% 50%; /* IE */
+    -o-transform-origin: 50% 50%; /* Opera */
+    -webkit-transform-origin: 50% 50%;
+}
+
+.not-important-div {
+    height: var(--box-width);
+    width: var(--div-height);
+    margin-right: -0.2rem;
+
+    grid-area: header-4;
+
+    writing-mode: vertical-lr;
+
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); /* Safari */
+    -moz-transform: rotate(180deg); /* Firefox */
+    -ms-transform: rotate(180deg); /* IE */
+    -o-transform: rotate(180deg); /* Opera */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Internet Explorer */
+
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%; /* Safari */
+    -moz-transform-origin: 50% 50%; /* Firefox */
+    -ms-transform-origin: 50% 50%; /* IE */
+    -o-transform-origin: 50% 50%; /* Opera */
+    -webkit-transform-origin: 50% 50%;
+}
+
+.box-1 {
+    width: var(--box-width);
+    height: var(--box-height);
+
+    grid-area: section-1;
+}
+
+.box-2 {
+    width: var(--box-width);
+    height: var(--box-height);
+
+    grid-area: section-2;
+}
+
+.box-3 {
+    width: var(--box-width);
+    height: var(--box-height);
+
+    grid-area: section-3;
+}
+
+.box-4 {
+    width: var(--box-width);
+    height: var(--box-height);
+
+    grid-area: section-4;
 }

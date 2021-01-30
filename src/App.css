@@ -1,8 +1,21 @@
 .main-display {
     width: 100vw;
     height: 100vh;
+
+    position: absolute;
+    display: flex;
+}
+
+.box-display {
+    width: 100vw;
+    height: 100vh;
     display: flex;
 
     align-items: center;
     justify-content: center;
+}
+
+.task-list-container {
+    width: 30%;
+    height: 100vh;
 }
