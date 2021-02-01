@@ -1,4 +1,5 @@
 import React from 'react'
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import "./App.css"
 import EisenhowerBox from './components/EisenhowerBox/EisenhowerBox';
@@ -15,12 +16,14 @@ export default class App extends React.Component {
     render() {
         return (
             <div className={"main-display"}>
-                <div className={"task-list-container"}>
-                    <TaskList />
-                </div>
-                <div className={"box-display"}>
-                    <EisenhowerBox />
-                </div>
+                <DragDropContext>
+                    <div className={"task-list-container"}>
+                        <TaskList />
+                    </div>
+                    <div className={"box-display"}>
+                        <EisenhowerBox />
+                    </div>
+                </DragDropContext>
             </div>
         );
     }
