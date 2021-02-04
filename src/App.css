@@ -4,6 +4,8 @@
 
     position: absolute;
     display: flex;
+
+    overflow: hidden;
 }
 
 .box-display {
