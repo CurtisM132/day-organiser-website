@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import AddIcon from '@material-ui/icons/Add';
-import IconButton from '@material-ui/core/IconButton';
 import { Droppable } from 'react-beautiful-dnd';
 
 import "./TaskList.css";
 import TaskItem from '../TaskItem/TaskItem';
+import TaskInput from '../TaskInput/TaskInput';
 import Task from '../../objects/Task';
 import { colorShade, rgbToHex } from '../../utils/Style';
 
@@ -15,7 +13,6 @@ import { colorShade, rgbToHex } from '../../utils/Style';
  */
 const TaskList = ({ tasks }) => {
     const [currentBackgroundColorHex, setCurrentBackgroundColorHex] = useState('');
-    const [formValue, setFormValue] = useState('');
 
     const divRef = useRef(null);
 
@@ -33,24 +30,19 @@ const TaskList = ({ tasks }) => {
         backgroundColor: isDragging ? colorShade(currentBackgroundColorHex, -8) : currentBackgroundColorHex
     });
 
-    /**
-     * Handle form field submit
-     */
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    function addTask(taskTitle) {
+        // TODO
+        // Validate
+        // Call api to add task
+        // Add to task list
+        // If successful keep
+        // If failed display snack bar with retry button
     }
 
     return (
         <div className={"task-list"} ref={divRef}>
             {/* Display a form field for task creation */}
-            <div className={"task-input"}>
-                <form className={"task-input-form"} noValidate autoComplete="off" onSubmit={handleSubmit}>
-                    <TextField label="Task Name" variant="outlined" fullWidth onChange={e => setFormValue(e.target.value)} />
-                </form>
-                <IconButton className={"task-input-icon-button"} color="primary" aria-label="Add" onClick={handleSubmit}>
-                    <AddIcon />
-                </IconButton>
-            </div>
+            <TaskInput addTask={addTask} />
 
             {/* List all available tasks in a droppable list of task items */}
             <Droppable droppableId="taskList" >

@@ -1,0 +1,16 @@
+.task-input {
+    width: 100%;
+
+    padding: 10px 8px 18px 8px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.task-input-form {
+    flex: 3 1 auto;
+}
+
+.task-input-icon-button {
+    flex: 0 1 auto;
+}
