@@ -5,8 +5,8 @@ import { Droppable } from 'react-beautiful-dnd';
 import "./TaskList.css";
 import TaskItem from '../TaskItem/TaskItem';
 import TaskInput from '../TaskInput/TaskInput';
-import Task from '../../objects/Task';
-import { colorShade, rgbToHex } from '../../utils/Style';
+import Task from '../../../objects/Task';
+import { colorShade, rgbToHex } from '../../../utils/Style';
 
 /**
  * Displays all of the available tasks and allows CRUD operations on them

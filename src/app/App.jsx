@@ -2,9 +2,9 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import './App.css';
-import EisenhowerBox from './components/EisenhowerBox/EisenhowerBox';
-import TaskList from './components/TaskList/TaskList';
-import Task from './objects/Task';
+import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
+import TaskList from '../features/tasks/TaskList/TaskList';
+import Task from '../objects/Task';
 
 export default class App extends React.Component {
     constructor(props) {
