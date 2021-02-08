@@ -1,41 +1,30 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
 import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
-import TaskList from '../features/tasks/TaskList/TaskList';
-import Task from '../objects/Task';
+import TaskController from '../features/tasks/TaskController/TaskController';
 
-export default class App extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            // TODO: Remove dummy data
-            allTasks: [new Task(0, 'Example Task 1'), new Task(1, 'Example Task 2'), new Task(2, 'Example Task 3')],
-            eisenhowerTasks: {
-                do: [],
-                decide: [],
-                delegate: [],
-                delete: []
-            }
-        };
-    }
+const App = () => {
+    const dispatch = useDispatch();
+    const { eisenhowerTasks } = useSelector((state) => state.tasks);
 
-    getTaskList() {
-        // API Call to get all tasks
-        // Bind to allTasks state
-    }
+    // getTaskList = () => {
+    //     // API Call to get all tasks
+    //     // Bind to allTasks state
+    // }
 
-    getEisnehowerTaskList() {
-        // API Call to get current Eisenhower tasks
-        // Bind to eisenhowerTasks state
-    }
+    // getEisnehowerTaskList = () => {
+    //     // API Call to get current Eisenhower tasks
+    //     // Bind to eisenhowerTasks state
+    // }
 
     /**
      * Moves task from one state array to another.
      */
-    moveTask = (source, destination, droppableSource, droppableDestination) => {
+    const moveTask = (source, destination, droppableSource, droppableDestination) => {
         const sourceClone = Array.from(source);
         const destClone = Array.from(destination);
         const [removed] = sourceClone.splice(droppableSource.index, 1);
@@ -52,7 +41,7 @@ export default class App extends React.Component {
     /**
      * Called when a task stops being dragged. Depending on the destination may move a task to another state array
      */
-    onDragEnd = (e) => {
+    const onDragEnd = (e) => {
         const { source, destination } = e;
 
         // Dropped outside the list
@@ -68,46 +57,46 @@ export default class App extends React.Component {
             // TODO: Potentially refactor droppableIds
             // Get source and destination arrays from the current state
             if (source.droppableId.includes("boxSection")) {
-                sourceArray = this.state.eisenhowerTasks[source.droppableId.replace("boxSection", "").toLowerCase()]
+                sourceArray = this.eisenhowerTasks[source.droppableId.replace("boxSection", "").toLowerCase()]
             }
             else {
-                sourceArray = this.state.allTasks;
+                sourceArray = this.allTasks;
             }
 
             if (destination.droppableId.includes("boxSection")) {
-                destinationArray = this.state.eisenhowerTasks[destination.droppableId.replace("boxSection", "").toLowerCase()]
+                destinationArray = this.eisenhowerTasks[destination.droppableId.replace("boxSection", "").toLowerCase()]
             }
             else {
-                destinationArray = this.state.allTasks;
+                destinationArray = this.allTasks;
             }
 
             // Move task to destination array and return an object of the updated arrays
             const result = this.moveTask(sourceArray, destinationArray, source, destination);
 
-            // Iterate over the arrays and update the state
-            Object.keys(result).map((key) => {
-                if (key.includes("boxSection")) {
-                    this.setState(prevState => ({ ...prevState, eisenhowerTasks: { ...prevState.eisenhowerTasks, [key.replace("boxSection", "").toLowerCase()]: result[key] } }));
-                }
-                else {
-                    this.setState({ allTasks: result[key] });
-                }
-            });
+            // // Iterate over the arrays and update the state
+            // Object.keys(result).map((key) => {
+            //     if (key.includes("boxSection")) {
+            //         this.setState(prevState => ({ ...prevState, eisenhowerTasks: { ...prevState.eisenhowerTasks, [key.replace("boxSection", "").toLowerCase()]: result[key] } }));
+            //     }
+            //     else {
+            //         this.setState({ allTasks: result[key] });
+            //     }
+            // });
         }
     }
 
-    render() {
-        return (
-            <div className="main-display">
-                <DragDropContext onDragEnd={this.onDragEnd}>
-                    <div className="task-list-container">
-                        <TaskList tasks={this.state.allTasks} />
-                    </div>
-                    <div className="box-display">
-                        <EisenhowerBox eisenhowerTasks={this.state.eisenhowerTasks} />
-                    </div>
-                </DragDropContext>
-            </div>
-        );
-    }
+    return (
+        <div className="main-display">
+            <DragDropContext onDragEnd={onDragEnd}>
+                <div className="task-list-container">
+                    <TaskController />
+                </div>
+                <div className="box-display">
+                    <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
+                </div>
+            </DragDropContext>
+        </div>
+    );
 }
+
+export default App;

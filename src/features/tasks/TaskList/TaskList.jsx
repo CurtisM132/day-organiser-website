@@ -14,12 +14,11 @@ import { colorShade, rgbToHex } from '../../../utils/Style';
 const TaskList = ({ tasks }) => {
     const [currentBackgroundColorHex, setCurrentBackgroundColorHex] = useState('');
 
-    const divRef = useRef(null);
-
     // After the components have loaded get the background colour of the box
-    useEffect(() => {
-        setCurrentBackgroundColorHex(rgbToHex(getComputedStyle(divRef.current).backgroundColor))
-    }, [])
+    // TODO: Implement theme with redux
+    // useEffect(() => {
+    //     setCurrentBackgroundColorHex(rgbToHex(getComputedStyle(divRef.current).backgroundColor))
+    // }, [])
 
     /**
     * Style of the droppable section/div
@@ -27,35 +26,22 @@ const TaskList = ({ tasks }) => {
     const getDroppableStyle = (isDragging) => ({
         height: '100%',
         // Lighten the background on hover
-        backgroundColor: isDragging ? colorShade(currentBackgroundColorHex, -8) : currentBackgroundColorHex
+        // backgroundColor: isDragging ? colorShade(currentBackgroundColorHex, -8) : currentBackgroundColorHex
+        backgroundColor: isDragging ? 'green' : 'blue'
     });
 
-    function addTask(taskTitle) {
-        // TODO
-        // Validate
-        // Call api to add task
-        // Add to task list
-        // If successful keep
-        // If failed display snack bar with retry button
-    }
-
     return (
-        <div className={"task-list"} ref={divRef}>
-            {/* Display a form field for task creation */}
-            <TaskInput addTask={addTask} />
-
-            {/* List all available tasks in a droppable list of task items */}
-            <Droppable droppableId="taskList" >
-                {(provided, snapshot) => (
-                    <div ref={provided.innerRef} {...provided.droppableProps} style={getDroppableStyle(snapshot.isDraggingOver, currentBackgroundColorHex)}>
-                        {tasks.map((task, index) => {
-                            return <TaskItem key={task.id} task={task} index={index} />;
-                        })}
-                        {provided.placeholder}
-                    </div>
-                )}
-            </Droppable>
-        </div>
+        /* List all available tasks in a droppable list of task items */
+        < Droppable droppableId="taskList" >
+            {(provided, snapshot) => (
+                <div ref={provided.innerRef} {...provided.droppableProps} style={getDroppableStyle(snapshot.isDraggingOver)}>
+                    {tasks.map((task, index) => {
+                        return <TaskItem key={task.id} task={task} index={index} />;
+                    })}
+                    {provided.placeholder}
+                </div>
+            )}
+        </Droppable >
     );
 }
 
