@@ -4,8 +4,13 @@
 
     position: absolute;
     display: flex;
+    flex-direction: column;
 
     overflow: hidden;
+}
+
+.feature-display {
+    display: flex;
 }
 
 .box-display {

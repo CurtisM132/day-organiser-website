@@ -3,6 +3,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
+import NavbarComponent from '../features/navbar/NavbarComponent';
 import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
 import TaskController from '../features/tasks/TaskController/TaskController';
 
@@ -87,14 +88,18 @@ const App = () => {
 
     return (
         <div className="main-display">
-            <DragDropContext onDragEnd={onDragEnd}>
-                <div className="task-list-container">
-                    <TaskController />
-                </div>
-                <div className="box-display">
-                    <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
-                </div>
-            </DragDropContext>
+            <NavbarComponent />
+            
+            <div className="feature-display">
+                <DragDropContext onDragEnd={onDragEnd}>
+                    <div className="task-list-container">
+                        <TaskController />
+                    </div>
+                    <div className="box-display">
+                        <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
+                    </div>
+                </DragDropContext>
+            </div>
         </div>
     );
 }
