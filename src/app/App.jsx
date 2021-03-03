@@ -3,13 +3,15 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
+import { PageEnum } from '../features/navbar/navbarSlice';
 import NavbarComponent from '../features/navbar/NavbarComponent';
 import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
 import TaskController from '../features/tasks/TaskController/TaskController';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { eisenhowerTasks } = useSelector((state) => state.tasks);
+  const { eisenhowerTasks } = useSelector((state) => state.tasks.eisenhowerTasks);
+  const currentPage = useSelector((state) => state.navbar.currentPage);
 
   // getTaskList = () => {
   //     // API Call to get all tasks
@@ -83,6 +85,30 @@ const App = () => {
     }
   };
 
+  /**
+   * Return the correct component to display based on the currentPage state
+   */
+  const currentPageComponent = () => {
+    switch (currentPage) {
+      case PageEnum.TODO:
+        return (
+          <div className="box-display">
+            YEET
+          </div>
+        )
+      case PageEnum.EISENHOWER_BOX:
+        return (
+          <div className="box-display">
+            <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
+          </div>
+        )
+      case PageEnum.DAY_SCHEDULER:
+        break;
+      case PageEnum.WEEK_SCHEDULER:
+        break;
+    }
+  }
+
   return (
     <div className="main-display">
       <NavbarComponent />
@@ -92,9 +118,7 @@ const App = () => {
           <div className="task-list-container">
             <TaskController />
           </div>
-          <div className="box-display">
-            <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
-          </div>
+          {currentPageComponent()}
         </DragDropContext>
       </div>
     </div>
