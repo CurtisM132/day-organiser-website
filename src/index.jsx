@@ -7,8 +7,20 @@ import App from './app/App';
 import store from './app/store';
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  /** 
+   * StrictMode is a tool for highlighting potential problems in an application
+   * Identifying components with unsafe lifecycles
+   * Warning about legacy string ref API usage
+   * Warning about deprecated findDOMNode usage
+   * Detecting unexpected side effects
+   * Detecting legacy context API
+   * 
+   * https://reactjs.org/docs/strict-mode.html
+   */  
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root'),
 );
