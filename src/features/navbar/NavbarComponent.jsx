@@ -3,7 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import { useDispatch } from 'react-redux';
 
 import "./NavbarComponent.css";
-import {setCurrentPage, PageEnum} from './navbarSlice';
+import { setCurrentPage, PageEnum } from './navbarSlice';
+import SettingsComponent from '../settings/SettingsComponent/SettingsComponent';
 
 /**
  * Top navbar component to navigate the various 'pages'
@@ -32,6 +33,9 @@ const NavbarComponent = () => {
                 <Typography variant="h4">
                     Week Scheduler
                 </Typography>
+            </div>
+            <div className={"navbar-settings"}>
+                <SettingsComponent />
             </div>
         </div>
     )
