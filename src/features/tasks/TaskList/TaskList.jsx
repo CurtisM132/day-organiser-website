@@ -1,33 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Droppable } from 'react-beautiful-dnd';
+import { useTheme } from '@material-ui/core/styles';
 
 import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
-import TaskInput from '../TaskInput/TaskInput';
 import Task from '../../../objects/Task';
-import { colorShade, rgbToHex } from '../../../utils/Style';
 
 /**
  * Displays all of the available tasks and allows CRUD operations on them
  */
 const TaskList = ({ tasks }) => {
-  const [currentBackgroundColorHex, setCurrentBackgroundColorHex] = useState('');
-
-  // After the components have loaded get the background colour of the box
-  // TODO: Implement theme with redux
-  // useEffect(() => {
-  //     setCurrentBackgroundColorHex(rgbToHex(getComputedStyle(divRef.current).backgroundColor))
-  // }, [])
+  const theme = useTheme();
 
   /**
     * Style of the droppable section/div
     */
   const getDroppableStyle = (isDragging) => ({
     height: '100%',
-    // Lighten the background on hover
-    // backgroundColor: isDragging ? colorShade(currentBackgroundColorHex, -8) : currentBackgroundColorHex
-    backgroundColor: isDragging ? 'green' : 'blue',
+    padding: '8px',
+    // TODO: Enhance the palette colours
+    backgroundColor: isDragging ? theme.palette.grey[700] : theme.palette.grey[800],
   });
 
   return (

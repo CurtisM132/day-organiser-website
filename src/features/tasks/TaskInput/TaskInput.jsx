@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
+import Box from '@material-ui/core/Box';
 
 import './TaskInput.css';
 
@@ -23,14 +24,14 @@ const TaskInput = ({ addTask }) => {
 
   return (
   // Display a form field for task creation
-    <div className="task-input">
+    <Box className="task-input" bgcolor="background.paper">
       <form className="task-input-form" noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField label="Task Name" variant="outlined" fullWidth onChange={(e) => setFormValue(e.target.value)} />
       </form>
-      <IconButton className="task-input-icon-button" color="primary" aria-label="Add" onClick={handleSubmit}>
+      <IconButton className="task-input-icon-button" aria-label="Add" onClick={handleSubmit}>
         <AddIcon />
       </IconButton>
-    </div>
+    </Box>
   );
 };
 

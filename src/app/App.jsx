@@ -1,8 +1,13 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { createMuiTheme } from '@material-ui/core';
 
 import './App.css';
+import { darkTheme, lightTheme } from './Theme';
 import { PageEnum } from '../features/navbar/navbarSlice';
 import NavbarComponent from '../features/navbar/NavbarComponent';
 import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
@@ -12,6 +17,13 @@ const App = () => {
   const dispatch = useDispatch();
   const { eisenhowerTasks } = useSelector((state) => state.tasks.eisenhowerTasks);
   const currentPage = useSelector((state) => state.navbar.currentPage);
+
+  /**
+  * Users might have specified a preference for a light or dark theme. The method by which the user expresses their preference can vary. 
+  * It might be a system-wide setting exposed by the Operating System, or a setting controlled by the User Agent.
+  * You can leverage this preference dynamically with the useMediaQuery hook and the prefers-color-scheme media query.
+  */
+  const materialTheme = useMediaQuery('(prefers-color-scheme: dark)') ? darkTheme : lightTheme;
 
   // getTaskList = () => {
   //     // API Call to get all tasks
@@ -53,22 +65,10 @@ const App = () => {
 
     // Destination a different list
     if (source.droppableId !== destination.droppableId) {
-      let sourceArray = [];
-      let destinationArray = [];
-
       // TODO: Potentially refactor droppableIds
       // Get source and destination arrays from the current state
-      if (source.droppableId.includes('boxSection')) {
-        sourceArray = this.eisenhowerTasks[source.droppableId.replace('boxSection', '').toLowerCase()];
-      } else {
-        sourceArray = this.allTasks;
-      }
-
-      if (destination.droppableId.includes('boxSection')) {
-        destinationArray = this.eisenhowerTasks[destination.droppableId.replace('boxSection', '').toLowerCase()];
-      } else {
-        destinationArray = this.allTasks;
-      }
+      let sourceArray = source.droppableId.includes('boxSection') ? this.eisenhowerTasks[source.droppableId.replace('boxSection', '').toLowerCase()] : this.allTasks;
+      let destinationArray = destination.droppableId.includes('boxSection') ? this.eisenhowerTasks[destination.droppableId.replace('boxSection', '').toLowerCase()] : this.allTasks;
 
       // Move task to destination array and return an object of the updated arrays
       const result = this.moveTask(sourceArray, destinationArray, source, destination);
@@ -110,18 +110,22 @@ const App = () => {
   }
 
   return (
-    <div className="main-display">
-      <NavbarComponent />
+    <ThemeProvider theme={materialTheme}>
+      <CssBaseline />
 
-      <div className="feature-display">
-        <DragDropContext onDragEnd={onDragEnd}>
-          <div className="task-list-container">
-            <TaskController />
-          </div>
-          {currentPageComponent()}
-        </DragDropContext>
+      <div className="main-display">
+        <NavbarComponent />
+
+        <div className="feature-display">
+          <DragDropContext onDragEnd={onDragEnd}>
+            <div className="task-list-container">
+              <TaskController />
+            </div>
+            {currentPageComponent()}
+          </DragDropContext>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
