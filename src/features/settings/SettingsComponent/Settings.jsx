@@ -9,7 +9,7 @@ import { setSettingsDialogOpen } from '../SettingsSlice';
 /**
  * Component to control the settings state changes and open the settings dialog
  */
-const SettingsComponent = () => {
+const Settings = () => {
     const dispatch = useDispatch();
     const dialogOpen = useSelector(state => state.settings.open);
 
@@ -19,7 +19,7 @@ const SettingsComponent = () => {
 
     return (
         <React.Fragment>
-            <IconButton className="settings-icon-button" color="primary" aria-label="Settings" onClick={() => dispatch(setSettingsDialogOpen(true))}>
+            <IconButton className="settings-icon-button" aria-label="Settings" onClick={() => dispatch(setSettingsDialogOpen(true))}>
                 <SettingsIcon />
             </IconButton>
 
@@ -28,4 +28,4 @@ const SettingsComponent = () => {
     )
 }
 
-export default SettingsComponent;
+export default Settings;

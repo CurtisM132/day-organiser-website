@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import tasksReducer from '../features/tasks/tasksSlice';
-import navbarReducer from '../features/navbar/navbarSlice';
+import navbarReducer from '../features/sidebar/SidebarSlice';
 import settingsReducer from '../features/settings/SettingsSlice';
 
 const rootReducer = combineReducers({

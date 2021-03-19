@@ -6,6 +6,7 @@ export const PageEnum = Object.freeze({
     // TODO: Rename
     DAY_SCHEDULER: 3,
     WEEK_SCHEDULER: 4,
+    MONTH_SCHEDULER: 5,
 })
 
 const initialState = {
@@ -13,8 +14,8 @@ const initialState = {
     currentPage: PageEnum.TODO
 }
 
-const navbarSlice = createSlice({
-    name: 'navbar',
+const sidebarSlice = createSlice({
+    name: 'sidebar',
     initialState,
     reducers: {
         setCurrentPage(state, action) {
@@ -28,6 +29,6 @@ const navbarSlice = createSlice({
     }
 })
 
-export const { setCurrentPage } = navbarSlice.actions;
+export const { setCurrentPage } = sidebarSlice.actions;
 
-export default navbarSlice.reducer;
+export default sidebarSlice.reducer;

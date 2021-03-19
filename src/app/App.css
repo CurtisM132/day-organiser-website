@@ -3,26 +3,46 @@
     height: 100vh;
 
     position: absolute;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+
+    grid-template-areas:
+        "header header"
+        "sidebar content";
+
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
 
     overflow: hidden;
 }
 
-.feature-display {
+.navbar {
+    grid-area: header;
+
+    z-index: 2000;
+}
+
+.sidebar {
+    grid-area: sidebar;
+
+    width: 180px;
+}
+
+.content-display {
+    grid-area: content;
+
     display: flex;
+    flex-direction: row;
 }
 
 .box-display {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
 
 .task-list-container {
-    width: 30%;
-    height: 100vh;
+    width: 25%;
 }

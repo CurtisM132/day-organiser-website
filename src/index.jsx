@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 
 import './index.css';
@@ -16,10 +17,12 @@ render(
    * Detecting legacy context API
    * 
    * https://reactjs.org/docs/strict-mode.html
-   */  
+   */
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

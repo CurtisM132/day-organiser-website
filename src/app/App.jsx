@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { createMuiTheme } from '@material-ui/core';
+import { Switch, Route } from "react-router-dom";
 
 import './App.css';
 import { darkTheme, lightTheme } from './Theme';
-import { PageEnum } from '../features/navbar/navbarSlice';
-import NavbarComponent from '../features/navbar/NavbarComponent';
+import Navbar from '../features/navbar/Navbar';
+import Sidebar from '../features/sidebar/SidebarComponent/Sidebar';
 import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
 import TaskController from '../features/tasks/TaskController/TaskController';
+
 
 const App = () => {
   const dispatch = useDispatch();
   const { eisenhowerTasks } = useSelector((state) => state.tasks.eisenhowerTasks);
-  const currentPage = useSelector((state) => state.navbar.currentPage);
 
   /**
   * Users might have specified a preference for a light or dark theme. The method by which the user expresses their preference can vary. 
@@ -85,47 +85,64 @@ const App = () => {
     }
   };
 
-  /**
-   * Return the correct component to display based on the currentPage state
-   */
-  const currentPageComponent = () => {
-    switch (currentPage) {
-      case PageEnum.TODO:
-        return (
-          <div className="box-display">
-            YEET
-          </div>
-        )
-      case PageEnum.EISENHOWER_BOX:
-        return (
-          <div className="box-display">
-            <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
-          </div>
-        )
-      case PageEnum.DAY_SCHEDULER:
-        break;
-      case PageEnum.WEEK_SCHEDULER:
-        break;
-    }
-  }
-
   return (
     <ThemeProvider theme={materialTheme}>
       <CssBaseline />
 
       <div className="main-display">
-        <NavbarComponent />
+        <div className="navbar">
+          <Navbar />
+        </div>
 
-        <div className="feature-display">
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+
+        <div className="content-display">
           <DragDropContext onDragEnd={onDragEnd}>
-            <div className="task-list-container">
-              <TaskController />
-            </div>
-            {currentPageComponent()}
+
+            <Switch>
+              <Route path="/todo-list">
+                <div className="task-list-container">
+                  <TaskController />
+                </div>
+              </Route>
+
+              <Route path="/eisenhower-box">
+                <div className="task-list-container">
+                  <TaskController />
+                </div>
+                <div className="box-display">
+                  <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
+                </div>
+              </Route>
+
+              <Route path="/scheduler/day">
+                <div>WIP</div>
+              </Route>
+
+              <Route path="/scheduler/week">
+                <div>WIP</div>
+              </Route>
+
+              <Route path="/scheduler/month">
+                <div>WIP</div>
+              </Route>
+
+              <Route path="/scratch-pad">
+                <div>WIP</div>
+              </Route>
+
+              <Route path="/">
+                {/* TODO: Home page component */}
+              </Route>
+
+            </Switch>
+
           </DragDropContext>
         </div>
-      </div>
-    </ThemeProvider>
+      </div >
+    </ThemeProvider >
   );
 };
 

@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import './TaskInput.css';
 
 /**
- * Component to create a new task
+ * Component to display the controls to create a new task
  * @param {Function} addTask Call to add a new task
  */
 const TaskInput = ({ addTask }) => {
