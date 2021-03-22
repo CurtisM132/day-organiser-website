@@ -7,10 +7,18 @@ import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
 import Task from '../../../objects/Task';
 
+const propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.instanceOf(Task)).isRequired,
+}
+
+const defaultProps = {
+  tasks: [],
+};
+
 /**
  * Displays all of the available tasks and allows CRUD operations on them
  */
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, droppableId }) => {
   const theme = useTheme();
 
   /**
@@ -25,7 +33,7 @@ const TaskList = ({ tasks }) => {
 
   return (
   /* List all available tasks in a droppable list of task items */
-    <Droppable droppableId="taskList">
+    <Droppable droppableId={droppableId}>
       {(provided, snapshot) => (
         <div ref={provided.innerRef} {...provided.droppableProps} style={getDroppableStyle(snapshot.isDraggingOver)}>
           {tasks.map((task, index) => <TaskItem key={task.id} task={task} index={index} />)}
@@ -36,12 +44,7 @@ const TaskList = ({ tasks }) => {
   );
 };
 
-TaskList.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.instanceOf(Task)).isRequired,
-};
-
-TaskList.defaultProps = {
-  tasks: [],
-};
+TaskList.propTypes = propTypes;
+TaskList.defaultProps = defaultProps;
 
 export default TaskList;
