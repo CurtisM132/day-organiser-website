@@ -17,6 +17,7 @@ const Sidebar = () => {
 
     return (
         <Drawer variant="permanent">
+            {/* Needed for adding top padding so the sidebar appears normally when behind the actual navbar/toolbar */}
             <Toolbar />
 
             <List subheader={
@@ -27,7 +28,6 @@ const Sidebar = () => {
                 <ListItemLink icon={<FormatListNumberedIcon />} primary="To Do List" to="/todo-list" click={() => dispatch(setCurrentPage(PageEnum.TODO))}></ListItemLink>
                 <ListItemLink icon={<ListAltIcon />} primary="Eisenhower Box" to="/eisenhower-box" click={() => dispatch(setCurrentPage(PageEnum.EISENHOWER_BOX))}></ListItemLink>
             </List>
-
             <Divider />
 
             <List subheader={
@@ -39,7 +39,15 @@ const Sidebar = () => {
                 <ListItemLink icon={<FormatListNumberedIcon />} primary="Week Scheduler" to="/scheduler/week" click={() => dispatch(setCurrentPage(PageEnum.WEEK_SCHEDULER))}></ListItemLink>
                 <ListItemLink icon={<FormatListNumberedIcon />} primary="Month Scheduler" to="/scheduler/month" click={() => dispatch(setCurrentPage(PageEnum.MONTH_SCHEDULER))}></ListItemLink>
             </List>
+            <Divider />
 
+            <List subheader={
+                <ListSubheader component="div">
+                    Learning
+                </ListSubheader>
+            }>
+                <ListItemLink icon={<FormatListNumberedIcon />} primary="Spaced Repetition" to="/spaced-repetition"></ListItemLink>
+            </List>
             <Divider />
 
             <List subheader={

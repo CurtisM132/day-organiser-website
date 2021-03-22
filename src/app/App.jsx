@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Switch, Route } from "react-router-dom";
 
 import './App.css';
 import { darkTheme, lightTheme } from './Theme';
+import AppRoutes from './AppRoutes';
 import Navbar from '../features/navbar/Navbar';
 import Sidebar from '../features/sidebar/SidebarComponent/Sidebar';
-import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
-import TaskController from '../features/tasks/TaskController/TaskController';
 
 
 const App = () => {
@@ -100,45 +98,7 @@ const App = () => {
 
         <div className="content-display">
           <DragDropContext onDragEnd={onDragEnd}>
-
-            <Switch>
-              <Route path="/todo-list">
-                <div className="task-list-container">
-                  <TaskController />
-                </div>
-              </Route>
-
-              <Route path="/eisenhower-box">
-                <div className="task-list-container">
-                  <TaskController />
-                </div>
-                <div className="box-display">
-                  <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
-                </div>
-              </Route>
-
-              <Route path="/scheduler/day">
-                <div>WIP</div>
-              </Route>
-
-              <Route path="/scheduler/week">
-                <div>WIP</div>
-              </Route>
-
-              <Route path="/scheduler/month">
-                <div>WIP</div>
-              </Route>
-
-              <Route path="/scratch-pad">
-                <div>WIP</div>
-              </Route>
-
-              <Route path="/">
-                {/* TODO: Home page component */}
-              </Route>
-
-            </Switch>
-
+            <AppRoutes />
           </DragDropContext>
         </div>
       </div >
