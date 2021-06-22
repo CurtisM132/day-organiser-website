@@ -4,13 +4,13 @@ import { Droppable } from 'react-beautiful-dnd';
 import { useTheme } from '@material-ui/core/styles';
 
 import './TaskList.css';
-import TaskItem from '../TaskItem/TaskItem';
 import Task from '@objects/Task';
+import TaskItem from '../TaskItem/TaskItem';
 
 const propTypes = {
   tasks: PropTypes.arrayOf(PropTypes.instanceOf(Task)).isRequired,
-}
-
+  droppableId: PropTypes.number.isRequired,
+};
 
 /**
  * Displays all of the available tasks and allows CRUD operations on them

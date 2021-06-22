@@ -21,7 +21,16 @@ const tasksSlice = createSlice({
   reducers: {
     addTask(state, action) {
       const { title, repeatable } = action.payload;
-      state.allTasks.push(new Task(nextTaskId++, title, false, repeatable));
+      const newTask = new Task(nextTaskId, title, false, repeatable);
+      nextTaskId += 1;
+
+      return {
+        ...state,
+        allTasks: {
+          ...state.allTasks,
+          newTask,
+        },
+      };
     },
     toggleTaskCompletion(state, action) {
       const task = state.find((task) => task.id === action.payload);

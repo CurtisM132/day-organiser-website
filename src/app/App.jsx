@@ -11,13 +11,12 @@ import AppRoutes from './AppRoutes';
 import Navbar from '../features/Navbar/Navbar';
 import Sidebar from '../features/Sidebar/Sidebar';
 
-
 const App = () => {
   const dispatch = useDispatch();
   const { eisenhowerTasks } = useSelector((state) => state.tasks.eisenhowerTasks);
 
   /**
-  * Users might have specified a preference for a light or dark theme. The method by which the user expresses their preference can vary. 
+  * Users might have specified a preference for a light or dark theme. The method by which the user expresses their preference can vary.
   * It might be a system-wide setting exposed by the Operating System, or a setting controlled by the User Agent.
   * You can leverage this preference dynamically with the useMediaQuery hook and the prefers-color-scheme media query.
   */
@@ -65,11 +64,11 @@ const App = () => {
     if (source.droppableId !== destination.droppableId) {
       // TODO: Potentially refactor droppableIds
       // Get source and destination arrays from the current state
-      let sourceArray = source.droppableId.includes('boxSection') ? this.eisenhowerTasks[source.droppableId.replace('boxSection', '').toLowerCase()] : this.allTasks;
-      let destinationArray = destination.droppableId.includes('boxSection') ? this.eisenhowerTasks[destination.droppableId.replace('boxSection', '').toLowerCase()] : this.allTasks;
+      const sourceArray = source.droppableId.includes('boxSection') ? eisenhowerTasks[source.droppableId.replace('boxSection', '').toLowerCase()] : allTasks;
+      const destinationArray = destination.droppableId.includes('boxSection') ? eisenhowerTasks[destination.droppableId.replace('boxSection', '').toLowerCase()] : allTasks;
 
       // Move task to destination array and return an object of the updated arrays
-      const result = this.moveTask(sourceArray, destinationArray, source, destination);
+      const result = moveTask(sourceArray, destinationArray, source, destination);
 
       // // Iterate over the arrays and update the state
       // Object.keys(result).map((key) => {
@@ -101,8 +100,8 @@ const App = () => {
             <AppRoutes />
           </DragDropContext>
         </div>
-      </div >
-    </ThemeProvider >
+      </div>
+    </ThemeProvider>
   );
 };
 

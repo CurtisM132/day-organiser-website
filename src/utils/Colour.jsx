@@ -1,14 +1,14 @@
 /**
  * Lightens or darkens a Hex colour code
- * @param {string} col Hex colour
- * @param {number} amt Amount to lighten (positive) or darken (negative) 
+ * @param {string} colour Hex colour
+ * @param {number} amount Amount to lighten (positive) or darken (negative)
  */
-export function colorShade(col, amt) {
-  col = col.replace(/^#/, '');
+export function colorShade(colour, amount) {
+  let col = colour.replace(/^#/, '');
   if (col.length === 3) col = col[0] + col[0] + col[1] + col[1] + col[2] + col[2];
 
   let [r, g, b] = col.match(/.{2}/g);
-  ([r, g, b] = [parseInt(r, 16) + amt, parseInt(g, 16) + amt, parseInt(b, 16) + amt]);
+  ([r, g, b] = [parseInt(r, 16) + amount, parseInt(g, 16) + amount, parseInt(b, 16) + amount]);
 
   r = Math.max(Math.min(255, r), 0).toString(16);
   g = Math.max(Math.min(255, g), 0).toString(16);
@@ -29,10 +29,10 @@ export function rgbToHex(rgb) {
   // If the rbg character is actually a hex then do nothing
   if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
 
-  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  const rgbArray = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
   function hex(x) {
-    return (`0${parseInt(x).toString(16)}`).slice(-2);
+    return (`0${parseInt(x, 10).toString(16)}`).slice(-2);
   }
 
-  return `#${hex(rgb[1])}${hex(rgb[2])}${hex(rgb[3])}`;
+  return `#${hex(rgbArray[1])}${hex(rgbArray[2])}${hex(rgbArray[3])}`;
 }

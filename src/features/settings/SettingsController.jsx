@@ -10,22 +10,22 @@ import { setSettingsDialogOpen } from './settingsSlice';
  * Component to control the settings state changes and open the settings dialog
  */
 const SettingsController = () => {
-    const dispatch = useDispatch();
-    const dialogOpen = useSelector(state => state.settings.open);
+  const dispatch = useDispatch();
+  const dialogOpen = useSelector((state) => state.settings.open);
 
-    const onClose = () => {
-        dispatch(setSettingsDialogOpen(false))
-    }
+  const onClose = () => {
+    dispatch(setSettingsDialogOpen(false));
+  };
 
-    return (
-        <Fragment>
-            <IconButton className="settings-icon-button" aria-label="Settings" onClick={() => dispatch(setSettingsDialogOpen(true))}>
-                <SettingsIcon />
-            </IconButton>
+  return (
+    <>
+      <IconButton className="settings-icon-button" aria-label="Settings" onClick={() => dispatch(setSettingsDialogOpen(true))}>
+        <SettingsIcon />
+      </IconButton>
 
-            <SettingsDialog open={dialogOpen} onClose={onClose}></SettingsDialog>
-        </Fragment>
-    )
-}
+      <SettingsDialog open={dialogOpen} onClose={onClose} />
+    </>
+  );
+};
 
 export default SettingsController;

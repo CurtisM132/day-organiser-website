@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Droppable } from 'react-beautiful-dnd';
 
 import './BoxSection.css';
-import TaskItem from '../../Tasks/TaskItem/TaskItem';
 import Task from '@objects/Task';
 import { colorShade, rgbToHex } from '@utils/Colour';
+import TaskItem from '../../Tasks/TaskItem/TaskItem';
 
 /**
  * A single section of the Eisenhower box
@@ -23,7 +23,8 @@ const BoxSection = ({ type, description, tasks }) => {
   const getDroppableStyle = (isDragging) => ({
     flex: '2 0 auto',
     // Lighten the background on hover
-    backgroundColor: isDragging ? colorShade(currentBackgroundColorHex, 8) : currentBackgroundColorHex,
+    backgroundColor: isDragging
+      ? colorShade(currentBackgroundColorHex, 8) : currentBackgroundColorHex,
   });
 
   return (
