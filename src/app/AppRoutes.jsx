@@ -1,16 +1,14 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 
-import EisenhowerBox from '../features/EisenhowerBox/EisenhowerBox';
-import TaskController from '../features/Tasks/TaskController/TaskController';
-import ToDoListController from '../features/TodoList/TodoListController/TodoListController';
+import EisenhowerBox from '@features/EisenhowerBox/EisenhowerBox';
+import TaskController from '@features/Tasks/TaskController/TaskController';
+import ToDoListController from '@features/TodoList/TodoListController/TodoListController';
 
 /**
  * Contains all of the URL routes and their associated components
  */
 const AppRoutes = () => {
-    const eisenhowerTasks = [];
-
     return (
         <Switch>
             <Route path="/todo-list">
@@ -27,7 +25,7 @@ const AppRoutes = () => {
                     <TaskController />
                 </div>
                 <div className="box-display">
-                    <EisenhowerBox eisenhowerTasks={eisenhowerTasks} />
+                    <EisenhowerBox eisenhowerTasks={[]} />
                 </div>
             </Route>
 

@@ -11,9 +11,6 @@ const propTypes = {
   tasks: PropTypes.arrayOf(PropTypes.instanceOf(Task)).isRequired,
 }
 
-const defaultProps = {
-  tasks: [],
-};
 
 /**
  * Displays all of the available tasks and allows CRUD operations on them
@@ -27,7 +24,6 @@ const TaskList = ({ tasks, droppableId }) => {
   const getDroppableStyle = (isDragging) => ({
     height: '100%',
     padding: '8px',
-    // TODO: Enhance the palette colours
     backgroundColor: isDragging ? theme.palette.grey[700] : theme.palette.grey[800],
   });
 
@@ -45,6 +41,5 @@ const TaskList = ({ tasks, droppableId }) => {
 };
 
 TaskList.propTypes = propTypes;
-TaskList.defaultProps = defaultProps;
 
 export default TaskList;

@@ -5,7 +5,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PropTypes from 'prop-types';
 
-// TODO: Add comment
+// Custom Material UI list component which combines text and an icon into a router link
 const ListItemLink = (props) => {
     const { icon, primary, to } = props;
 

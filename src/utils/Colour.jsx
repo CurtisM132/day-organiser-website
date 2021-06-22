@@ -23,7 +23,7 @@ export function colorShade(col, amt) {
 
 /**
  * Converts RGB code to a Hex code
- * @param {string} rgb
+ * @param {string} rgb RGB code
  */
 export function rgbToHex(rgb) {
   // If the rbg character is actually a hex then do nothing

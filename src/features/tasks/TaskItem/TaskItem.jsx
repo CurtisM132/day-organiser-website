@@ -28,12 +28,7 @@ const TaskItem = ({ task, index }) => (
 
 TaskItem.propTypes = {
   task: PropTypes.instanceOf(Task).isRequired,
-  index: PropTypes.number,
-};
-
-TaskItem.defaultProps = {
-  task: [],
-  index: 0,
+  index: PropTypes.number.isRequired,
 };
 
 export default TaskItem;

@@ -9,7 +9,9 @@ import ListItemLink from '@components/ListItemLink';
 import { PageEnum, setCurrentPage } from './sidebarSlice';
 
 
-// TODO 
+/**
+ * Sidebar component containing router links to all of the important website features
+ */
 const Sidebar = () => {
     const dispatch = useDispatch();
 

@@ -15,19 +15,20 @@ const TaskInput = ({ addTask }) => {
   const [formValue, setFormValue] = useState('');
 
   /**
-     * Handle form field submit
-     */
+  * Handle form field submit
+  */
   const handleSubmit = (event) => {
     event.preventDefault();
     addTask(formValue);
   };
 
   return (
-  // Display a form field for task creation
+    // Display a form field for task creation
     <Box className="task-input" bgcolor="background.paper">
       <form className="task-input-form" noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField label="Task Name" variant="outlined" fullWidth onChange={(e) => setFormValue(e.target.value)} />
       </form>
+
       <IconButton className="task-input-icon-button" aria-label="Add" onClick={handleSubmit}>
         <AddIcon />
       </IconButton>
@@ -37,10 +38,6 @@ const TaskInput = ({ addTask }) => {
 
 TaskInput.propTypes = {
   addTask: PropTypes.func.isRequired,
-};
-
-TaskInput.defaultProps = {
-  addTask: () => console.log('No function passed in'),
 };
 
 export default TaskInput;

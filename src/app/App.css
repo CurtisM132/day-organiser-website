@@ -18,6 +18,7 @@
 .navbar {
     grid-area: header;
 
+    /* Needed to position the navbar on top of all other components */
     z-index: 2000;
 }
 

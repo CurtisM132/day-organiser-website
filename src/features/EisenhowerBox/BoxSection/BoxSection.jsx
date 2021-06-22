@@ -5,7 +5,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import './BoxSection.css';
 import TaskItem from '../../Tasks/TaskItem/TaskItem';
 import Task from '@objects/Task';
-import { colorShade, rgbToHex } from '@utils/Style';
+import { colorShade, rgbToHex } from '@utils/Colour';
 
 /**
  * A single section of the Eisenhower box
@@ -54,7 +54,6 @@ BoxSection.propTypes = {
 BoxSection.defaultProps = {
   type: '',
   description: '',
-  tasks: [],
 };
 
 export default BoxSection;
