@@ -1,7 +1,7 @@
 /**
- * Lightens or darkens a colour code
- * @param {string} col
- * @param {number} amt
+ * Lightens or darkens a Hex colour code
+ * @param {string} col Hex colour
+ * @param {number} amt Amount to lighten (positive) or darken (negative) 
  */
 export function colorShade(col, amt) {
   col = col.replace(/^#/, '');

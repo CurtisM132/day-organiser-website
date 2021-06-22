@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import Task from '../../objects/Task';
+import Task from '@objects/Task';
 
 // TODO: Remove
 let nextTaskId = 4;

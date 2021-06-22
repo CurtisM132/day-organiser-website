@@ -7,12 +7,12 @@ export const PageEnum = Object.freeze({
     DAY_SCHEDULER: 3,
     WEEK_SCHEDULER: 4,
     MONTH_SCHEDULER: 5,
-})
+});
 
 const initialState = {
     // TODO: Get from localstorage/cookie
     currentPage: PageEnum.TODO
-}
+};
 
 const sidebarSlice = createSlice({
     name: 'sidebar',
@@ -27,7 +27,7 @@ const sidebarSlice = createSlice({
             }
         }
     }
-})
+});
 
 export const { setCurrentPage } = sidebarSlice.actions;
 

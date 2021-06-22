@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd';
 import Box from '@material-ui/core/Box';
 
 import './TaskItem.css';
-import Task from '../../../objects/Task';
+import Task from '@objects/Task';
 
 /**
  * Component to represent a task

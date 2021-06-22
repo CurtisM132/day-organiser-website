@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import React from 'react';
 
-import SettingsController from '../Settings/SettingsController';
+import SettingsController from '@features/Settings/SettingsController';
 import "./Navbar.css";
 
 

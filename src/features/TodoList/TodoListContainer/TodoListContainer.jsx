@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import TaskList from '../../Tasks/TaskList/TaskList';
-import Task from '../../../objects/Task';
+import TaskList from '@features/Tasks/TaskList/TaskList';
+import Task from '@objects/Task';
 
 const propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.instanceOf(Task)).isRequired,

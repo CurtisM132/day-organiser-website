@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 import SettingsDialog from './SettingsDialog';
-import { setSettingsDialogOpen } from './SettingsSlice';
+import { setSettingsDialogOpen } from './settingsSlice';
 
 /**
  * Component to control the settings state changes and open the settings dialog

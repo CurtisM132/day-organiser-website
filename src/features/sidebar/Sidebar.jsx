@@ -5,8 +5,8 @@ import FormatListNumberedRtlIcon from '@material-ui/icons/FormatListNumberedRtl'
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
 import './Sidebar.css'
-import ListItemLink from '../../components/ListItemLink';
-import { PageEnum, setCurrentPage } from './SidebarSlice';
+import ListItemLink from '@components/ListItemLink';
+import { PageEnum, setCurrentPage } from './sidebarSlice';
 
 
 // TODO 

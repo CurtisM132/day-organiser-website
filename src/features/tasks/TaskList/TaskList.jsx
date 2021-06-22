@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 import './TaskList.css';
 import TaskItem from '../TaskItem/TaskItem';
-import Task from '../../../objects/Task';
+import Task from '@objects/Task';
 
 const propTypes = {
   tasks: PropTypes.arrayOf(PropTypes.instanceOf(Task)).isRequired,
