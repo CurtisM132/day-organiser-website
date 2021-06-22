@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 
-import EisenhowerBox from '../features/eisenhower/EisenhowerBox/EisenhowerBox';
-import TaskController from '../features/tasks/TaskController/TaskController';
+import EisenhowerBox from '../features/EisenhowerBox/EisenhowerBox';
+import TaskController from '../features/Tasks/TaskController/TaskController';
 import ToDoListController from '../features/TodoList/TodoListController/TodoListController';
 
 /**
  * Contains all of the URL routes and their associated components
  */
 const AppRoutes = () => {
-    const eisenhowerTasks = null;
+    const eisenhowerTasks = [];
 
     return (
         <Switch>

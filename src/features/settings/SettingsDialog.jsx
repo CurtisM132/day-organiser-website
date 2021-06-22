@@ -17,7 +17,7 @@ const SettingsDialog = ({open, onClose}) => {
         <Dialog aria-labelledby="Settings" open={open} onClose={handleClose}>
             <DialogTitle id="settings-dialog-title">Settings</DialogTitle>
         </Dialog>
-    )
+    );
 }
 
 SettingsDialog.propTypes = {

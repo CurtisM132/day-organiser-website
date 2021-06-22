@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import React from 'react';
 
-import Settings from '../settings/SettingsComponent/Settings';
+import SettingsController from '../Settings/SettingsController';
 import "./Navbar.css";
 
 
@@ -21,7 +21,7 @@ const Navbar = () => {
                 {/* TODO: Add account manager icon */}
 
                 <div className="navbar-icon-container">
-                    <Settings />
+                    <SettingsController />
                 </div>
             </Toolbar>
         </AppBar>

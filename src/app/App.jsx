@@ -8,8 +8,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import './App.css';
 import { darkTheme, lightTheme } from './Theme';
 import AppRoutes from './AppRoutes';
-import Navbar from '../features/navbar/Navbar';
-import Sidebar from '../features/sidebar/SidebarComponent/Sidebar';
+import Navbar from '../features/Navbar/Navbar';
+import Sidebar from '../features/Sidebar/Sidebar';
 
 
 const App = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import TaskList from '../../tasks/TaskList/TaskList';
+import TaskList from '../../Tasks/TaskList/TaskList';
 import Task from '../../../objects/Task';
 
 const propTypes = {
