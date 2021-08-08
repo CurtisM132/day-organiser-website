@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import EisenhowerBox from '@features/EisenhowerBox/EisenhowerBox';
 import TaskController from '@features/Tasks/TaskController/TaskController';
 import ToDoListController from '@features/TodoList/TodoListController/TodoListController';
+import SpacedRepetitionPageContainer from '@features/SpacedRepetition/SpacedRepetitionContainer/SpacedRepetitionContainer';
 
 /**
  * Contains all of the URL routes and their associated components
@@ -41,7 +42,7 @@ const AppRoutes = () => (
     </Route>
 
     <Route path="/spaced-repetition">
-      <div>WIP</div>
+      <SpacedRepetitionPageContainer />
     </Route>
 
     <Route path="/scratch-pad">
