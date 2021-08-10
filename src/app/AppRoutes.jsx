@@ -25,7 +25,7 @@ const AppRoutes = () => (
         <TaskController />
       </div>
       <div className="box-display">
-        <EisenhowerBox eisenhowerTasks={[]} />
+        <EisenhowerBox />
       </div>
     </Route>
 

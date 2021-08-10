@@ -6,7 +6,11 @@ let nextTaskId = 4;
 
 const initialState = {
   // TODO: Remove dummy data
-  allTasks: [new Task(0, 'Example Task 1'), new Task(1, 'Example Task 2'), new Task(2, 'Example Task 3')],
+  allTasks: [
+    new Task(0, 'Example Task 1').toPlainObject(),
+    new Task(1, 'Example Task 2').toPlainObject(), 
+    new Task(2, 'Example Task 3').toPlainObject(),
+  ],
   eisenhowerTasks: {
     do: [],
     decide: [],
@@ -21,7 +25,7 @@ const tasksSlice = createSlice({
   reducers: {
     addTask(state, action) {
       const { title, repeatable } = action.payload;
-      const newTask = new Task(nextTaskId, title, false, repeatable);
+      const newTask = new Task(nextTaskId, title, false, repeatable).toPlainObject();
       nextTaskId += 1;
 
       return {

@@ -18,12 +18,12 @@ render(
    *
    * https://reactjs.org/docs/strict-mode.html
    */
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
